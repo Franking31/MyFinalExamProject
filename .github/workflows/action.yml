@@ -1,12 +1,21 @@
-name: Simple GitHub Action
-on: [push, pull_request]
+name: Test Workflow
+
+on:
+  push:
+    branches:
+      - feature/about
+  pull_request:
+    branches:
+      - feature/about
 
 jobs:
-  check-run:
+  build:
     runs-on: ubuntu-latest
+
     steps:
       - name: Checkout repository
-        uses: actions/checkout@v3
+        uses: actions/checkout@v2
 
-      - name: Print a message
-        run: echo "Automatisation réussie !"
+      - name: Display a message
+        run: |
+          echo "Automatisation réussie !"
